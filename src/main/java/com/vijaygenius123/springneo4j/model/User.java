@@ -6,6 +6,8 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 
 import java.util.List;
 
+import static org.springframework.data.neo4j.core.schema.Relationship.Direction.INCOMING;
+
 @Node
 public class User {
 
@@ -42,7 +44,7 @@ public class User {
         this.movies = movies;
     }
 
-    @Relationship(type = "RATED", direction = Relationship.Direction.INCOMING)
+    @Relationship(type = "RATED", direction = INCOMING)
     private List<Movie> movies;
 
     public User(Long id, String name, Integer age) {
